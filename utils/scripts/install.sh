@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+if [[ -d "~/arch-dotfiles" ]] && [[ ! -d "~/dotfiles" ]]; then
+  mv ~/arch-dotfiles/ ~/dotfiles
+else
+  echo -e "Error with directory structure: Please ensure no other dotfiles folder in '$HOME'"
+fi
+
 read -p "This script is intended to be ran directly after using archinstall to install the hyprland profile. Continue? [Y/n] " continue_install
 
 case $continue_install in
