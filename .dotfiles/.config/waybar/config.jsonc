@@ -1,0 +1,124 @@
+{
+  "layer": "top",
+  "position": "top",
+  "spacing": 3,
+  "height": 25,
+  // add custom modules at start of modules-left
+  // Arch logo that, on click, runs wofi or other app menu
+  // Chat GPT logo that runs either a Chat GPT app or opens chrome to chatgpt.com. This should open on workspace 1 if possible.
+  "modules-left": ["custom/arch", "hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  // make sure bluetooth and network managers are installed and functional on click,
+  // add custom power module at end of modules-right that allows us to lock, logout, restart, and power down (wlogout?)
+  "modules-right": ["cpu", "disk", "memory", "bluetooth", "network", "wireplumber", "battery", "custom/power"],
+  "custom/arch": {
+    "format": "󰣇",
+    "on-click": "wofi --show drun",
+    "align": "center"
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "󰊯",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "format-alt": "{:%a, %b %d, %Y (%R)}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode"          : "year",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "right",
+      "on-scroll"     : 1,
+      "format": {
+        "months":     "<span color='#ffead3'><b>{}</b></span>",
+        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions":  {
+      "on-click-right": "mode",
+      "on-scroll-up": "tz_up",
+      "on-scroll-down": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "  {usage}%, {avg_frequency}GHz",
+    "states": {
+      "zero": 0,
+      "low": 20,
+      "medium": 50,
+      "high": 75
+    }
+  },
+  "disk": {
+    "interval": 30,
+    "format": " {free}",
+    "tooltip": true,
+    "tooltip-format": "Used: {used}\nFree: {free}\nTotal: {total}"
+  },
+  "memory": {
+    "interval": 1,
+    "format": "  {used}GiB",
+    "tooltip": true,
+    "tooltip-format": "Used: {used}GiB\nAvailable: {avail}GiB\nTotal: {total}GiB",
+    "states": {
+      "zero": 0,
+      "low": 20,
+      "medium": 50,
+      "high": 75
+    }
+  },
+  "bluetooth": {
+    "on-click": "blueman-manager",
+    "format-on": "󰂯",
+    "format-disabled": "<span foreground='#ff0000'>󰂲</span>",
+    "format-connected": "<span foreground='#00ff00'>󰂯</span> {device_alias}",
+    "max-length": 12
+  },
+  "network": {
+    "on-click": "nm-connection-editor",
+    "format": "<span foreground='#00ff00'>󰖩</span>",
+    "format-wifi": "<span foreground='#00ff00'>󰖩</span>  {essid}",
+    "format-ethernet": "<span foreground='#00ff00'></span> {ipaddr}",
+    "format-disconnected": "<span foreground='#ff0000'>󱚼</span>",
+    "max-length": 12
+  },
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-muted": " ",
+    "format-icons": [" ", " ", " "]
+  },
+  "battery": {
+    "design-capacity": true,
+    "interval": 60,
+    "states": {
+      "full": 100, // green
+      "high": 70, // yellow
+      "warning": 50, // orange
+      "low": 30, // red
+      "critical": 15 // red blinking
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰂄 {capacity}%",
+    "format-icons": ["󰁻", "󰁽", "󰁿", "󰂁", "󰁹"]
+  },
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "$HOME/dotfiles/.dotfiles/.config/waybar/shutdown.sh",
+    "tooltip": true,
+    "tooltip-format": "Turn off device."
+  }
+}

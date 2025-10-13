@@ -1,0 +1,169 @@
+* {
+  border: none;
+  border-radius: 0;
+  background: none;
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: rgba(212, 212, 212, 1);
+}
+
+#custom-arch {
+  transition: all 0.3s;
+  color: rgba(0, 128, 255, 1);
+  border: 1px solid rgba(0, 128, 255, 1);
+  border-radius: 4px;
+  margin: 4px;
+  padding: 0px 11px 0px 6px;
+  font-size: 20px;
+}
+
+#custom-arch:hover {
+  background-color: rgba(0, 128, 255, 1);
+  border-color: rgba(212, 212, 212, 1);
+  color: rgba(212, 212, 212, 1);
+}
+
+/* HYPRLAND WORKSPACES */
+#workspaces {
+  background-image: linear-gradient(135deg, transparent, transparent);
+}
+
+#workspaces button {
+  transition: all 0.3s;
+  background-image: linear-gradient(135deg, transparent, transparent);
+  border: 1px solid rgba(128, 0, 255, 1);
+  border-radius: 4px;
+  margin: 4px;
+  padding: 0px 8px 0px 6px;
+  color: rgba(128, 48, 255, 1);
+}
+
+#workspaces button.active {
+  background-image: linear-gradient(
+    135deg,
+    rgba(128, 0, 255, 1),
+    rgba(0, 128, 255, 1)
+  );
+  color: rgba(212, 212, 212, 1);
+}
+
+#workspaces button:hover {
+  border: 1px solid rgba(212, 212, 212, 1);
+  background-color: rgba(0, 128, 255, 1);
+  color: rgba(212, 212, 212, 1);
+  box-shadow: none;
+  text-shadow: none;
+}
+
+/* CPU, Disk, and Memory */
+#cpu {
+  transition: all 0.3s;
+  margin: 4px;
+}
+
+#cpu.zero {
+  color: rgba(0, 128, 255, 1);
+}
+
+#cpu.low {
+  color: rgba(128, 0, 255, 1);
+}
+
+#cpu.medium {
+  color: rgba(255, 0, 255, 1);
+}
+
+#cpu.high {
+  color: rgba(255, 0, 128, 1);
+}
+
+#disk {
+  margin: 4px;
+  color: rgba(0, 128, 255, 1);
+}
+
+#memory {
+  transition: all 0.3s;
+  margin: 4px;
+}
+
+#memory.zero {
+  color: rgba(0, 128, 255, 1);
+}
+
+#memory.low {
+  color: rgba(128, 0, 255, 1);
+}
+
+#memory.medium {
+  color: rgba(255, 0, 255, 1);
+}
+
+#memory.high {
+  color: rgba(255, 0, 128, 1);
+}
+
+/* BLUETOOTH AND NETWORK */
+#bluetooth {
+  margin: 4px;
+  color: rgba(0, 128, 255, 1);
+}
+
+#network {
+  margin: 4px;
+  color: rgba(0, 128, 255, 1);
+}
+
+/* WIREPLUMBER */
+#wireplumber {
+  transition: all 0.3s;
+  margin: 4px;
+  color: rgba(0, 128, 255, 1);
+}
+
+#wireplumber.muted {
+  color: rgba(72, 72, 72, 1);
+}
+
+/* BATTERY */
+@keyframes critical {
+  0% {
+    color: rgba(255, 0, 0, 1);
+  }
+  100% {
+    color: rgba(0, 0, 0, 1);
+  }
+}
+
+#battery {
+  transition: all 0.3s;
+  margin: 4px;
+}
+
+#battery.full {
+  color: rgba(0, 255, 0, 1);
+}
+
+#battery.high {
+  color: rgba(255, 255, 0, 1);
+}
+
+#battery.medium {
+  color: rgba(255, 128, 0, 1);
+}
+
+#battery.low {
+  color: rgba(255, 0, 0, 1);
+}
+
+#battery.critical {
+  animation: 2s critical steps(2, start) infinite;
+}
+
+/* POWER */
+#custom-power {
+  margin: 4px 12px 4px 4px;
+  color: rgba(255, 0, 0, 1);
+}

@@ -1,0 +1,5 @@
+vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "gray" })
+vim.api.nvim_set_hl(0, "LineNr", { fg = "red" })
+vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "gray" })
+vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "NONE" })

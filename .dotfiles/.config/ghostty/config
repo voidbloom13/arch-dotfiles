@@ -1,0 +1,10 @@
+background = 202f3a
+background-opacity = 0.5
+background-blur = true
+cursor-style = block
+cursor-style-blink = true
+title = "Ghostty"
+window-padding-x = 0
+window-padding-y = 0
+window-theme = ghostty
+window-titlebar-background = 0f192a
