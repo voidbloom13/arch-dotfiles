@@ -19,6 +19,7 @@
 *Note: This setup is meant to be used directly after a fresh archinstall using the hyprland profile, choosing pipewire as your audio driver, and importing the installation media network configuration.*
 *If you are using a **dotfiles** folder in your $HOME directory, make sure to back it up and delete, rename, or move the directory.*
 1. Update your system and install git using `sudo pacman -Syu git`
-2. Run the installation script using `bash ~/arch-dotfiles/utils/scripts/install.sh`
-3. Change your shell using `chsh` to /usr/bin/zsh and install `tmux` plugins by pressing [ \<ctrl\>+b, i ].
-4. `rm -rf ~/dotfiles/.git` and set up your own repo to track your personalized changes.
+2. Clone the repo from your home directory `cd ~ && git clone https://github.com/voidbloom13/arch-dotfiles`
+3. Run the installation script using `bash ~/arch-dotfiles/utils/scripts/install.sh`
+4. Change your shell using `chsh` to /usr/bin/zsh and install `tmux` plugins by pressing [ \<ctrl\>+b, i ].
+5. `rm -rf ~/dotfiles/.git` and set up your own repo to track your personalized changes.
