@@ -1,19 +1,23 @@
 #!/usr/bin/env bash
 
-if [[ -d "~/arch-dotfiles" ]] && [[ ! -d "~/dotfiles" ]]; then
-  mv ~/arch-dotfiles/ ~/dotfiles
+if [[ -d "$HOME/arch-dotfiles" ]] && [[ ! -d "$HOME/dotfiles" ]]; then
+  echo "Renaming arch-dotfiles to dotfiles..."
+  mv $HOME/arch-dotfiles/ $HOME/dotfiles
 else
-  echo -e "Error with directory structure: Please ensure no other dotfiles folder in '$HOME'"
+  echo "Error with directory structure: Please ensure no other dotfiles folder in '$HOME'"
+  exit 1
 fi
 
 read -p "This script is intended to be ran directly after using archinstall to install the hyprland profile. Continue? [Y/n] " continue_install
+continue_install=${continue_install:-Y}
 
 case $continue_install in
   [yY] )
-    echo -e "Continuing installation..."
+    echo "Continuing installation..."
     ;;
   * )
-    echo -e "Aborting installation..."
+    echo "Aborting installation..."
+    exit 1
     ;;
 esac
 
@@ -40,6 +44,9 @@ git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugin
 sudo npm install -g nodemon typescript typescript-language-server @tailwindcss/language-server
 
 # SDDM Theme
+if [[ -d "$HOME/sddm-astronaut-theme" ]]; then
+	rm -rf $HOME/sddm-astronaut-theme
+fi
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
 
 # NetworkManager setup
@@ -66,6 +73,10 @@ case $setup_git in
     read -p "Git config email: " git_email
     git config --global user.name "$git_name" && git config --global user.email "$git_email"
     gh auth login
+    ;;
+  * )
+    echo "Exiting git setup..."
+    ;;
 esac
 
 echo -e "Next Steps:\n* Run [chsh] and change user shell to /usr/bin/zsh\n* Run [tmux] and press [<ctrl>+b, i] to install tmux plugins\n* Reboot"
