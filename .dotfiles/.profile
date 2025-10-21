@@ -7,3 +7,6 @@ export PATH="$PATH:/snap/bin"
 # ALIASES
 alias ll="ls -la --color=auto"
 alias ls="ls -a --color=auto"
+if [[ -x "$(command -v pgcli)" ]]; then
+  alias psql="pgcli"
+fi
