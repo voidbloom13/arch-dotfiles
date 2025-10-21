@@ -1,15 +1,8 @@
 #!/usr/bin/env bash
 
-if [[ -d "$HOME/arch-dotfiles" ]] && [[ ! -d "$HOME/dotfiles" ]]; then
-  echo -e "\e[1;37mRenaming \e[1;31march-dotfiles \e[1;37mto \e[1;32mdotfiles\e[1;37m...\e[0m"
-  mv $HOME/arch-dotfiles/ $HOME/dotfiles
-else
-  echo -e "\e[1;31mError with directory structure: \e[0;37mPlease ensure no other dotfiles folder in '\e[1;32m$HOME'\e[0m"
-  exit 1
-fi
-
+# Confirms you want to start installation
 read -p "This script is intended to be ran directly after using archinstall to install the hyprland profile. Continue? [Y/n] " continue_install
-continue_install=${continue_install:-Y}
+continue_install=${continue_install:-n}
 
 case $continue_install in
   [yY] )
@@ -20,6 +13,15 @@ case $continue_install in
     exit 1
     ;;
 esac
+
+# Renames arch-dotfiles to dotfiles, fails if either arch0dotfiles doesn't exist or dotfiles directory already exists
+if [[ -d "$HOME/arch-dotfiles" ]] && [[ ! -d "$HOME/dotfiles" ]]; then
+  echo -e "\e[1;37mRenaming \e[1;31march-dotfiles \e[1;37mto \e[1;32mdotfiles\e[1;37m...\e[0m"
+  mv $HOME/arch-dotfiles/ $HOME/dotfiles
+else
+  echo -e "\e[1;31mError with directory structure: \e[0;37mPlease ensure no other dotfiles folder in '\e[1;32m$HOME'\e[0m"
+  exit 1
+fi
 
 # Installs base packages
 cd ~
@@ -51,13 +53,15 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-th
 # NetworkManager setup
 if [[ -f /etc/NetworkManager/conf.d/dns.conf ]]; then
   sudo mv /etc/NetworkManager/conf.d/dns.conf /etc/NetworkManager/conf.d/dns.conf.bak
-  echo -e "[main]\ndns=none" | sudo tee /etc/NetworkManager/conf.d/dns.conf
 fi
+echo -e "\n\e[1;32mEditing dns.conf...\e[0m"
+echo -e "[main]\ndns=none" | sudo tee /etc/NetworkManager/conf.d/dns.conf
 
 if [[ -f /etc/resolv.conf ]]; then # replace these with your desired nameserver/s
   sudo mv /etc/resolv.conf /etc/resolv.conf.bak
-  echo -e "nameserver 8.8.8.8\nnameserver 8.8.4.4\nnameserver 127.0.0.1" | sudo tee /etc/resolv.conf
 fi
+echo -e "\n\e[1;32mEditing resolved.conf...\e[0m"
+echo -e "nameserver 8.8.8.8\nnameserver 8.8.4.4\nnameserver 127.0.0.1" | sudo tee /etc/resolv.conf
 
 sudo systemctl disable --now systemd-networkd && sudo systemctl enable --now NetworkManager
 
@@ -66,6 +70,7 @@ source ~/dotfiles/utils/scripts/stow.sh
 cd && clear && fastfetch
 
 # Git Config and GH Authorization
+echo -e "\n"
 read -p "Setup git/github? [Y/n] " setup_git
 setup_git=${setup_git:-Y}
 case $setup_git in
