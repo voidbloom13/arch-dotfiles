@@ -2,11 +2,31 @@ return {
   -- Main LSP Configuration
   "neovim/nvim-lspconfig",
   dependencies = {
-    { "williamboman/mason.nvim", opts = {} },
+    {
+      "williamboman/mason.nvim",
+      opts = {
+        registries = {
+          "github:mason-org/mason-registry",
+          "github:Crashdummyy/mason-registry"
+        },
+        ensure_installed = {
+          "rozlyn",
+          "rzls"
+        }
+      }
+    },
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    { "j-hui/fidget.nvim",       opts = {} },
+    { "j-hui/fidget.nvim", opts = {} },
     "hrsh7th/cmp-nvim-lsp",
+    {
+      "seblyng/roslyn.nvim",
+      ft = {
+        "cs",
+        "razor"
+      },
+      opts = {}
+    },
   },
   config = function()
     require('lspconfig').tailwindcss.setup {
@@ -14,6 +34,7 @@ return {
         "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue"
       }
     }
+
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
@@ -80,13 +101,14 @@ return {
     --  TODO Ensure these lsps are configured properly
     local servers = {
       cssls = {},
-      csharp_ls = {},
       docker_compose_language_service = {},
       html = {},
       jdtls = {},
       lemminx = {},
       lua_ls = {},
       pyright = {},
+      roslyn = {},
+      rzls = {},
       stylua = {},
       ts_ls = {},
     }
@@ -113,5 +135,6 @@ return {
         end,
       },
     })
+    vim.lsp.config("roslyn", {})
   end,
 }

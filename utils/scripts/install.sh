@@ -51,6 +51,8 @@ fi
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
 
 # NetworkManager setup
+sudo systemctl disable --now systemd-networkd && sudo systemctl enable --now NetworkManager
+
 if [[ -f /etc/NetworkManager/conf.d/dns.conf ]]; then
   sudo mv /etc/NetworkManager/conf.d/dns.conf /etc/NetworkManager/conf.d/dns.conf.bak
 fi
@@ -62,8 +64,6 @@ if [[ -f /etc/resolv.conf ]]; then # replace these with your desired nameserver/
 fi
 echo -e "\n\e[1;32mEditing resolved.conf...\e[0m"
 echo -e "nameserver 8.8.8.8\nnameserver 8.8.4.4\nnameserver 127.0.0.1" | sudo tee /etc/resolv.conf
-
-sudo systemctl disable --now systemd-networkd && sudo systemctl enable --now NetworkManager
 
 # Final Setup
 source ~/dotfiles/utils/scripts/stow.sh
@@ -106,4 +106,4 @@ case $setup_psql in
     ;;
 esac
 
-echo -e "\e[1;37mNext Steps\e[0m:\n* Run \e[1;31m[chsh]\e[0m and change user shell to \e[1;31m/usr/bin/zsh\e[0m\n* Run \e[1;32m[tmux]\e[0m and press \e[1;32m[<ctrl>+b, i]\e[0m to install tmux plugins\n* Reboot"
+echo -e "\e[1;37mNext Steps\e[0m:\n* Run \e[1;31m[chsh]\e[0m and change user shell to \e[1;31m/usr/bin/zsh\e[0m\n* Run \e[1;32m[tmux]\e[0m and press \e[1;32m[<ctrl>+b, i]\e[0m to install tmux plugins\n* Run \e[1;35m:MasonInstallAll\e[0m, \e[1;35m:MasonInstall roslyn\e[0m and \e[1;35m:MasonInstall rzls\e[0m inside \e[1;35mNeovim\e[0m\n* Reboot"
