@@ -9,6 +9,7 @@ window#waybar {
   color: rgba(212, 212, 212, 1);
 }
 
+/* CUSTOM ARCH LAUNCHER */
 #custom-arch {
   transition: all 0.3s;
   color: rgba(0, 128, 255, 1);
@@ -20,6 +21,23 @@ window#waybar {
 }
 
 #custom-arch:hover {
+  background-color: rgba(0, 128, 255, 1);
+  border-color: rgba(212, 212, 212, 1);
+  color: rgba(212, 212, 212, 1);
+}
+
+/* OPEN-WEBUI */
+#custom-open-webui {
+  transition: all 0.3s;
+  color: rgba(0, 128, 255, 1);
+  border: 1px solid rgba(0, 128, 255, 1);
+  border-radius: 4px;
+  margin: 4px;
+  padding: 0px 9px 0px 6px;
+  font-size: 20px;
+}
+
+#custom-open-webui:hover {
   background-color: rgba(0, 128, 255, 1);
   border-color: rgba(212, 212, 212, 1);
   color: rgba(212, 212, 212, 1);
