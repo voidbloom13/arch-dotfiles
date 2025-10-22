@@ -14,7 +14,7 @@ case $continue_install in
     ;;
 esac
 
-# Renames arch-dotfiles to dotfiles, fails if either arch0dotfiles doesn't exist or dotfiles directory already exists
+# Renames arch-dotfiles to dotfiles, fails if either arch-dotfiles doesn't exist or dotfiles directory already exists
 if [[ -d "$HOME/arch-dotfiles" ]] && [[ ! -d "$HOME/dotfiles" ]]; then
   echo -e "\e[1;37mRenaming \e[1;31march-dotfiles \e[1;37mto \e[1;32mdotfiles\e[1;37m...\e[0m"
   mv $HOME/arch-dotfiles/ $HOME/dotfiles

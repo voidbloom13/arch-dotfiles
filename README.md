@@ -21,5 +21,5 @@
 1. Update your system and install git using `sudo pacman -Syu git`
 2. Clone the repo from your home directory `cd ~ && git clone https://github.com/voidbloom13/arch-dotfiles`
 3. Run the installation script using `bash ~/arch-dotfiles/utils/scripts/install.sh`
-4. Change your shell using `chsh` to /usr/bin/zsh and install `tmux` plugins by pressing [ \<ctrl\>+b, i ].
+4. Follow the post-install instructions that display after the installation is complete.
 5. `rm -rf ~/dotfiles/.git` and set up your own repo to track your personalized changes.

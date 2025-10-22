@@ -1,10 +1,12 @@
 local M = {
   base46 = {
-    theme = "nightowl",
-    hl_add = {
-      vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "gray" }),
-      vim.api.nvim_set_hl(0, "LineNr", { fg = "blue" }),
-      vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "gray" })
+    theme = "carbonfox",
+    hl_override = {
+      LineNrAbove = { fg = "#008fff" },
+      LineNr = { fg = "#8f49ff" },
+      LineNrBelow = { fg = "#008fff" },
+      Comment = { italic = true },
+      String = { italic = true, bold = true }
     },
     transparency = true
   },
