@@ -168,7 +168,7 @@ window#waybar {
   color: rgba(255, 255, 0, 1);
 }
 
-#battery.medium {
+#battery.warning {
   color: rgba(255, 128, 0, 1);
 }
 

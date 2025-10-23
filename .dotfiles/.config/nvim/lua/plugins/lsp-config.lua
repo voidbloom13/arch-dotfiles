@@ -29,13 +29,6 @@ return {
     },
   },
   config = function()
-    require('lspconfig').tailwindcss.setup {
-      filetypes = {
-        "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue"
-      }
-    }
-
-
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
       callback = function(event)
@@ -131,10 +124,14 @@ return {
         function(server_name)
           local server = servers[server_name] or {}
           server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-          require("lspconfig")[server_name].setup(server)
+          -- require("lspconfig")[server_name].setup(server)
+          vim.lsp.config(server_name, {})
         end,
       },
     })
     vim.lsp.config("roslyn", {})
-  end,
+    vim.lsp.config("tailwindcss", {
+      filetypes = {"html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue"}
+    })
+  end
 }
