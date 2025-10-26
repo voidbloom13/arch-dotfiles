@@ -1,6 +1,6 @@
 local M = {
   base46 = {
-    theme = "carbonfox",
+    theme = "midnight_breeze",
     hl_override = {
       LineNrAbove = { fg = "#008fff" },
       LineNr = { fg = "#8f49ff" },

@@ -10,3 +10,4 @@ alias ls="ls -a --color=auto"
 if [[ -x "$(command -v pgcli)" ]]; then
   alias psql="pgcli"
 fi
+alias intellij="flatpak run com.jetbrains.IntelliJ-IDEA-Community"
