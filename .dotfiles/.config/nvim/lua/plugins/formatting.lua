@@ -40,12 +40,13 @@ return { -- Autoformat
 
 				css = { "prettier" },
 				c_sharp = { "csharpier" },
-				html = { "prettier" },
+				html = { "prettier", "tailwindcss" },
 				java = { "google-java-format" },
-				javascript = { "prettier" },
+				javascript = { "prettier", "tailwindcss" },
 				lua_ls = { "stylua" },
 				python = { "isort", "black" },
-				typescript = { "prettier" },
+				typescript = { "prettier", "tailwindcss" },
+				tailwindcss = { "tailwindcss" },
 			},
 		},
 	},
@@ -55,7 +56,7 @@ return { -- Autoformat
 		build = "cd formatter && npm ci && npm run build",
 		config = true,
 		opts = {
-			on_save_enabled = true,
+			
 			on_save_pattern = { "*.html", "*.js", "*.jsx", "*.ts", "*.tsx", "*.vue" },
 			node_path = "node",
 			trim_spaces = true,

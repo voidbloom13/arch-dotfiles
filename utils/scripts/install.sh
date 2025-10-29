@@ -47,7 +47,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
 
 # Installs NPM Packages
-sudo npm install -g @google/gemini-cli nodemon typescript typescript-language-server @tailwindcss/language-server
+sudo npm install -g @google/gemini-cli nodemon prettier-plugin-tailwindcss typescript typescript-language-server @tailwindcss/language-server
 
 # SDDM Theme
 if [[ -d "$HOME/sddm-astronaut-theme" ]]; then
