@@ -1,11 +1,11 @@
 local M = {
   base46 = {
-    theme = "midnight_breeze",
+    theme = "chadracula-evondev",
     hl_override = {
       LineNrAbove = { fg = "#008fff" },
-      LineNr = { fg = "#8f49ff" },
+      LineNr = { italic = true, fg = "#8f49ff" },
       LineNrBelow = { fg = "#008fff" },
-      Comment = { italic = true },
+      Comment = { italic = true, fg = "#90cfcf" },
       String = { italic = true, bold = true }
     },
     transparency = true

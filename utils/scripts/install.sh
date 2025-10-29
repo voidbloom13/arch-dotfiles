@@ -47,7 +47,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
 
 # Installs NPM Packages
-sudo npm install -g nodemon typescript typescript-language-server @tailwindcss/language-server
+sudo npm install -g @google/gemini-cli nodemon typescript typescript-language-server @tailwindcss/language-server
 
 # SDDM Theme
 if [[ -d "$HOME/sddm-astronaut-theme" ]]; then
@@ -56,7 +56,10 @@ fi
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
 
 # NetworkManager setup
-sudo systemctl disable --now systemd-networkd && sudo systemctl enable --now NetworkManager
+sudo systemctl disable --now systemd-networkd
+sudo systemctl enable --now NetworkManager
+sudo systemctl disable --now iwd
+sudo systemctl enable --now wpa_supplicant
 
 if [[ -f /etc/NetworkManager/conf.d/dns.conf ]]; then
   sudo mv /etc/NetworkManager/conf.d/dns.conf /etc/NetworkManager/conf.d/dns.conf.bak
@@ -69,6 +72,12 @@ if [[ -f /etc/resolv.conf ]]; then # replace these with your desired nameserver/
 fi
 echo -e "\n\e[1;32mEditing resolved.conf...\e[0m"
 echo -e "nameserver 8.8.8.8\nnameserver 8.8.4.4\nnameserver 127.0.0.1" | sudo tee /etc/resolv.conf
+
+if [[ -f /etc/NetworkManager/NetworkManager.conf ]]; then
+  sudo mv /etc/NetworkManager/NetworkManager.conf /etc/NetworkManager/NetworkManager.conf.bak
+fi
+echo -e "\n\e[1;32mEditing NetworkManager.conf...\e[0m"
+echo -e "[backend]\nbackend=wpa_supplicant" | sudo tee /etc/NetworkManager/NetworkManager.conf
 
 # Final Setup
 source ~/dotfiles/utils/scripts/stow.sh

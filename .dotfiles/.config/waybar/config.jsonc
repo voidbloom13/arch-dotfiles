@@ -3,13 +3,8 @@
   "position": "top",
   "spacing": 3,
   "height": 25,
-  // add custom modules at start of modules-left
-  // Arch logo that, on click, runs wofi or other app menu
-  // Chat GPT logo that runs either a Chat GPT app or opens chrome to chatgpt.com. This should open on workspace 1 if possible.
   "modules-left": ["custom/arch", "custom/open-webui", "hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
-  // make sure bluetooth and network managers are installed and functional on click,
-  // add custom power module at end of modules-right that allows us to lock, logout, restart, and power down (wlogout?)
   "modules-right": ["cpu", "disk", "memory", "bluetooth", "network", "wireplumber", "battery", "custom/power"],
   "custom/arch": {
     "format": "󰣇",
@@ -109,11 +104,11 @@
     "design-capacity": true,
     "interval": 60,
     "states": {
-      "full": 100, // green
-      "high": 70, // yellow
-      "warning": 50, // orange
-      "low": 30, // red
-      "critical": 15 // red blinking
+      "full": 100,
+      "high": 70,
+      "warning": 50,
+      "low": 30,
+      "critical": 15
     },
     "format": "{icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
