@@ -7,6 +7,8 @@
 - Custom Oh-My-Posh Theme with transient prompt *(based on Catppuccin)*
 - Awesome Neovim config inspired by NvChad
 ![Screenshot of NVIM](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-nvim.png)
+- OpenWebUI and Gemini CLI AI options
+![Screenshot of AI](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-ai.png)
 - Hyprlock and Hypridle to keep your device secure
 ![Screenshot of Hyprlock](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-hyprlock.png)
 - Hyprpaper for managing wallpapers
