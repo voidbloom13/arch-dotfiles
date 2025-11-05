@@ -1,6 +1,6 @@
 local M = {
   base46 = {
-    theme = "chadracula-evondev",
+    theme = "horizon",
     hl_override = {
       LineNrAbove = { fg = "#008fff" },
       LineNr = { italic = true, fg = "#8f49ff" },
