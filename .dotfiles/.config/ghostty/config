@@ -1,10 +1,18 @@
-background = 202f3a
-background-opacity = 0.5
-background-blur = true
+background = 000000
+background-opacity = 0.7
+background-blur = 30
+maximize = true
 cursor-style = block
 cursor-style-blink = true
 title = "Ghostty"
+theme = Cobalt2
 window-padding-x = 0
 window-padding-y = 0
 window-theme = ghostty
-window-titlebar-background = 0f192a
+window-titlebar-background = 000067
+
+font-family = "FiraCode Nerd Font"
+font-family-bold = "FiraCode Nerd Font"
+font-family-italic = "VictorMono Nerd Font"
+font-family-bold-italic = "VictorMono Nerd Font"
+font-feature = "+calt, +liga, +dlig"

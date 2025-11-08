@@ -25,7 +25,7 @@ fi
 
 # Installs base packages
 cd ~
-sudo pacman -Syu aspnet-runtime base-devel blueman brightnessctl cifs-utils curl dotnet-runtime dotnet-sdk fastfetch fzf gcc ghostty git github-cli hypridle hyprlock hyprpaper jdk-openjdk kitty libreoffice-fresh man maven networkmanager nm-connection-editor nvim nodejs npm obsidian pgcli postgresql ripgrep stow swaync tmux tree ttf-font-awesome $(pacman -Sgq nerd-fonts) unzip waybar zip zoxide zsh
+sudo pacman -Syu aspnet-runtime base-devel blueman brightnessctl cifs-utils curl docker dotnet-runtime dotnet-sdk fastfetch fzf gcc ghostty git github-cli hypridle hyprlock hyprpaper jdk-openjdk kitty libreoffice-fresh man maven networkmanager nm-connection-editor nvim nodejs npm obsidian pgcli postgresql ripgrep stow swaync tmux tree ttf-font-awesome $(pacman -Sgq nerd-fonts) unzip waybar wireplumber zip zoxide zsh
 
 # Clones and Installs yay
 git clone https://aur.archlinux.org/yay
@@ -34,7 +34,7 @@ makepkg -si
 cd ~
 
 # Installs yay packages
-yay -S google-chrome hyprshot mirage visual-studio-code-bin
+yay -S google-chrome hyprshot mirage
 
 # Installs SDKMan and Spring CLI
 curl -s "https://get.sdkman.io" | bash
@@ -60,6 +60,7 @@ sudo systemctl disable --now systemd-networkd
 sudo systemctl enable --now NetworkManager
 sudo systemctl disable --now iwd
 sudo systemctl enable --now wpa_supplicant
+sudo systemctl enable --now bluetooth
 
 if [[ -f /etc/NetworkManager/conf.d/dns.conf ]]; then
   sudo mv /etc/NetworkManager/conf.d/dns.conf /etc/NetworkManager/conf.d/dns.conf.bak
@@ -89,7 +90,6 @@ read -p "Setup Open-WebUI and Ollama? [Y/n] " setup_ai
 setup_ai=${setup_ai:-Y}
 case $setup_ai in
   [yY] )
-    sudo pacman -Syu docker 
     pci_devices=$(lspci -nn | grep -i VGA)
     if echo "$pci_devices" | grep -q NVIDIA; then
       sudo pacman -Syu nvidia-container-toolkit
