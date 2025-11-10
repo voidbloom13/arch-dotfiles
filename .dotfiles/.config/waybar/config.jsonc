@@ -2,30 +2,12 @@
   "layer": "top",
   "position": "top",
   "spacing": 3,
-  "height": 25,
-  "modules-left": ["custom/arch", "custom/open-webui", "hyprland/workspaces", "hyprland/window"],
+  "height": 15,
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
   "modules-right": ["cpu", "disk", "memory", "bluetooth", "network", "wireplumber", "battery", "custom/power"],
-  "custom/arch": {
-    "format": "󰣇",
-    "on-click": "wofi --show drun",
-    "align": "center"
-  },
-  "custom/open-webui": {
-    "format": "󰁤",
-    "on-click": "google-chrome-stable --app=http://localhost:3000",
-    "align": "center"
-  },
   "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "1": "",
-      "2": "󰊯",
-      "default": ""
-    },
-    "persistent-workspaces": {
-      "*": 5
-    }
+    "format": "",
   },
   "clock": {
     "format": "{:%I:%M %p}",
