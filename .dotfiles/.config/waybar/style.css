@@ -2,6 +2,8 @@
   border: none;
   border-radius: 0;
   background: none;
+  min-height: 0;
+  padding: 0;
 }
 
 window#waybar {
@@ -15,16 +17,17 @@ window#waybar {
 }
 
 #workspaces button {
-  transition: all 0.3s;
+  transition: all 0.15s;
   background-image: linear-gradient(
     135deg,
     rgba(212, 212, 212, 0.7),
     rgba(212, 212, 212, 0.7)
   );
+  font-size: 0px;
   border: 1px solid rgba(255, 255, 255, 1);
-  border-radius: 4px;
-  padding: 0px 8px;
-  margin: 0 4px;
+  border-radius: 8px;
+  padding: 0px;
+  margin: 4px;
 }
 
 #workspaces button.active {
@@ -33,7 +36,7 @@ window#waybar {
     rgba(128, 0, 255, 1),
     rgba(0, 128, 255, 1)
   );
-  padding: 0px 16px;
+  padding: 0px 8px;
 }
 
 #workspaces button:hover {

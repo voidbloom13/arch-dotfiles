@@ -7,7 +7,7 @@
   "modules-center": ["clock"],
   "modules-right": ["cpu", "disk", "memory", "bluetooth", "network", "wireplumber", "battery", "custom/power"],
   "hyprland/workspaces": {
-    "format": "",
+    // "format": "",
   },
   "clock": {
     "format": "{:%I:%M %p}",
