@@ -1,7 +1,7 @@
 # My Arch Linux Dotfiles
 
 ### Key Features
-- Hyprland Tiling Window Manager for seamlessly switching between windows
+<h3 style={text-align: "center";}>Hyprland Tiling Window Manager for seamlessly switching between windows</h3>
 ![Screenshot of Hyprland Tiling](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland.png)
 - Your choice of Kitty or Ghostty for terminal emulation
 ![Screenshot of terminals](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-terminals.png)
@@ -17,6 +17,8 @@
 ![Screenshot of waybar](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-waybar.png)
 - Simple, yet elegant, dock using [nwg-dock-hyprland](https://github.com/nwg-piotr/nwg-dock-hyprland)
 ![Screenshot of dock](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-dock.png)
+- Wofi theme that matches waybar and nwg-dock
+![Screenshot of Wofi](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-wofi.png)
 - Hyprpaper for managing wallpapers
 - Hyprshot to capture your screen
 - Using [Keyitdev's SDDM Astronaut Theme](https://github.com/Keyitdev/sddm-astronaut-theme) (hyprland_kath preset) for my SDDM Login Theme
