@@ -7,7 +7,10 @@
   "modules-center": ["clock"],
   "modules-right": ["cpu", "disk", "memory", "bluetooth", "network", "wireplumber", "battery", "custom/power"],
   "hyprland/workspaces": {
-    // "format": "",
+    "persistent-workspaces": {
+      "eDP-2": 3,
+      "*": 1
+    },
   },
   "clock": {
     "format": "{:%I:%M %p}",
@@ -36,7 +39,7 @@
   },
   "cpu": {
     "interval": 1,
-    "format": "  {usage}%, {avg_frequency}GHz",
+    "format": "   {usage}%, {avg_frequency}GHz",
     "states": {
       "zero": 0,
       "low": 20,
@@ -46,13 +49,13 @@
   },
   "disk": {
     "interval": 30,
-    "format": " {free}",
+    "format": "  {free}",
     "tooltip": true,
     "tooltip-format": "Used: {used}\nFree: {free}\nTotal: {total}"
   },
   "memory": {
     "interval": 1,
-    "format": "  {used}GiB",
+    "format": "   {used}GiB",
     "tooltip": true,
     "tooltip-format": "Used: {used}GiB\nAvailable: {avail}GiB\nTotal: {total}GiB",
     "states": {
@@ -66,15 +69,15 @@
     "on-click": "blueman-manager",
     "format-on": "󰂯",
     "format-disabled": "<span foreground='#ff0000'>󰂲</span>",
-    "format-connected": "<span foreground='#00ff00'>󰂯</span> {device_alias}",
+    "format-connected": "<span foreground='#00ff00'>󰂯</span>   {device_alias}",
     "max-length": 12
   },
   "network": {
     "on-click": "nm-connection-editor",
-    "format": "<span foreground='#00ff00'>󰖩</span>",
-    "format-wifi": "<span foreground='#00ff00'>󰖩</span>  {essid}",
-    "format-ethernet": "<span foreground='#00ff00'></span> {ipaddr}",
-    "format-disconnected": "<span foreground='#ff0000'>󱚼</span>",
+    "format": "<span foreground='#00ff00'>󰖩 </span>",
+    "format-wifi": "<span foreground='#00ff00'>󰖩  </span>{essid}",
+    "format-ethernet": "<span foreground='#00ff00'>  </span> {ipaddr}",
+    "format-disconnected": "<span foreground='#ff0000'>󱚼 </span>",
     "max-length": 12
   },
   "wireplumber": {
@@ -98,7 +101,7 @@
     "format-icons": ["󰁻", "󰁽", "󰁿", "󰂁", "󰁹"]
   },
   "custom/power": {
-    "format": "⏻",
+    "format": "⏻ ",
     "on-click": "$HOME/dotfiles/.dotfiles/.config/waybar/shutdown.sh",
     "tooltip": true,
     "tooltip-format": "Turn off device."

@@ -1,0 +1,6 @@
+prompt=Search
+allow_images=true
+image_size=28
+single_click=true
+close_on_focus_loss=true
+

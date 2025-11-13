@@ -1,26 +1,6 @@
 #!/usr/bin/env bash
 
-echo -e "This script runs through setting up \e[1;31mOpenWebUI with Ollama\e[0m, \e[1;35mGit/Github\e[0m configuration and authentication, and \e[1;34mPostgreSQL\e[0m setup."
-
-# Ollama and Open-WebUI Setup
-echo -e "\n"
-read -p "Setup Open-WebUI and Ollama? [Y/n] " setup_ai
-setup_ai=${setup_ai:-Y}
-case $setup_ai in
-  [yY] )
-    pci_devices=$(lspci -nn | grep -i VGA)
-    if echo "$pci_devices" | grep -q NVIDIA; then
-      sudo pacman -Syu nvidia-container-toolkit
-    fi
-    sudo systemctl enable --now docker
-    sudo usermod -aG docker $USER
-    sudo docker run -d -p 3000:8080 --gpus=all -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama
-    echo -e "\e[1mNext Steps: \e[0mOpen Open-WebUI by clicking the icon or pressing <SUPER+C> and install some models."
-    ;;
-  * )
-    echo "Skipping AI Setup..."
-    ;;
-esac
+echo -e "This script runs through setting up \e[1;35mGit/Github\e[0m configuration and authentication and \e[1;34mPostgreSQL\e[0m setup."
 
 # Git Config and GH Authorization
 echo -e "\n"

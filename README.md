@@ -2,19 +2,23 @@
 
 ### Key Features
 - Hyprland Tiling Window Manager for seamlessly switching between windows
+![Screenshot of Hyprland Tiling](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland.png)
 - Your choice of Kitty or Ghostty for terminal emulation
 ![Screenshot of terminals](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-terminals.png)
 - Custom Oh-My-Posh Theme with transient prompt *(based on Catppuccin)*
+![Screenshot of OMP Theme](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/omp-theme.png)
 - Awesome Neovim config inspired by NvChad
 ![Screenshot of NVIM](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-nvim.png)
-- OpenWebUI and Gemini CLI AI options
-![Screenshot of AI](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-ai.png)
+- Gemini CLI for integrated AI
+![Screenshot of Gemini](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/gemini.png)
 - Hyprlock and Hypridle to keep your device secure
 ![Screenshot of Hyprlock](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-hyprlock.png)
-- Hyprpaper for managing wallpapers
-- Hyprshot to capture your screen
 - Sleek Waybar config to track Hyprland workspaces and device metrics
 ![Screenshot of waybar](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-waybar.png)
+- Simple, yet elegant, dock using [nwg-dock-hyprland](https://github.com/nwg-piotr/nwg-dock-hyprland)
+![Screenshot of dock](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-dock.png)
+- Hyprpaper for managing wallpapers
+- Hyprshot to capture your screen
 - Using [Keyitdev's SDDM Astronaut Theme](https://github.com/Keyitdev/sddm-astronaut-theme) (hyprland_kath preset) for my SDDM Login Theme
 
 ### How to Use

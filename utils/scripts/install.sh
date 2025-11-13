@@ -25,7 +25,7 @@ fi
 
 # Installs base packages
 cd ~
-sudo pacman -Syu aspnet-runtime base-devel blueman brightnessctl cifs-utils curl docker dotnet-runtime dotnet-sdk fastfetch fzf gcc ghostty git github-cli hypridle hyprlock hyprpaper jdk-openjdk kitty libreoffice-fresh man maven networkmanager nm-connection-editor nvim nodejs npm obsidian pipewire pgcli postgresql ripgrep stow swaync tmux tree ttf-font-awesome $(pacman -Sgq nerd-fonts) unzip waybar wireplumber zip zoxide zsh
+sudo pacman -Syu aspnet-runtime base-devel blueman brightnessctl cifs-utils curl discord docker dotnet-runtime dotnet-sdk fastfetch fzf gcc ghostty git github-cli hypridle hyprlock hyprpaper jdk-openjdk kitty libreoffice-fresh man maven networkmanager nm-connection-editor nvim nodejs npm nwg-dock-hyprland obsidian pipewire pgcli postgresql ripgrep stow swaync tmux tree ttf-font-awesome $(pacman -Sgq nerd-fonts) unzip waybar wireplumber zip zoxide zsh
 
 # Clones and Installs yay
 git clone https://aur.archlinux.org/yay
@@ -34,7 +34,7 @@ makepkg -si
 cd ~
 
 # Installs yay packages
-yay -S google-chrome hyprshot mirage
+yay -S google-chrome hyprshot mirage montserrat-otf
 
 # Installs SDKMan and Spring CLI
 curl -s "https://get.sdkman.io" | bash
@@ -51,7 +51,7 @@ sudo npm install -g @google/gemini-cli nodemon prettier-plugin-tailwindcss types
 
 # SDDM Theme
 if [[ -d "$HOME/sddm-astronaut-theme" ]]; then
-	rm -rf $HOME/sddm-astronaut-theme
+  rm -rf $HOME/sddm-astronaut-theme
 fi
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
 
@@ -61,6 +61,8 @@ sudo systemctl enable --now NetworkManager
 sudo systemctl disable --now iwd
 sudo systemctl enable --now wpa_supplicant
 sudo systemctl enable --now bluetooth
+sudo systemctl enable --now docker
+sudo usermod -aG docker $USER
 
 if [[ -f /etc/NetworkManager/conf.d/dns.conf ]]; then
   sudo mv /etc/NetworkManager/conf.d/dns.conf /etc/NetworkManager/conf.d/dns.conf.bak
@@ -84,4 +86,9 @@ echo -e "[backend]\nbackend=wpa_supplicant" | sudo tee /etc/NetworkManager/Netwo
 source ~/dotfiles/utils/scripts/stow.sh
 cd && clear && fastfetch
 
-echo -e "\e[1;37mNext Steps\e[0m:\n* Add network connection in \e[1;31m[nm-connection-editor]\e[0m and \e[1;32mReboot\e[0m\n* Run \e[1;35m[chsh]\e[0m and change user shell to \e[1;35m/usr/bin/zsh\e[0m\n* Run \e[1;32m[tmux]\e[0m and press \e[1;32m[<ctrl>+b, i]\e[0m to install tmux plugins\n* Run \e[1;34m:MasonInstallAll\e[0m, \e[1;34m:MasonInstall roslyn\e[0m and \e[1;34m:MasonInstall rzls\e[0m inside \e[1;34mNeovim\e[0m\n* Run \e[1;36m[bash ~/dotfiles/utils/scripts/post_setup.sh]\e[0m to finish setting up."
+echo -e "\e[1;37mNext Steps\e[0m:"
+echo -e "* Add network connection in \e[1;31m[nm-connection-editor]\e[0m and \e[1;32mReboot\e[0m"
+echo -e "* Run \e[1;35m[chsh]\e[0m and change user shell to \e[1;35m/usr/bin/zsh\e[0m"
+echo -e "* Run \e[1;32m[tmux]\e[0m and press \e[1;32m[<ctrl>+b, i]\e[0m to install tmux plugins"
+echo -e "* Run \e[1;34m:MasonInstallAll\e[0m inside \e[1;34mNeovim\e[0m"
+echo -e "* Run \e[1;36m[bash ~/dotfiles/utils/scripts/post_setup.sh]\e[0m to finish setting up."
