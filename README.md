@@ -2,7 +2,7 @@
 
 ### Key Features
 <h3 style="text-align:center;">Hyprland Tiling Window Manager for seamlessly switching between windows</h3>
-<img alt="Screenshot of Hyprland Tiling" src="https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland.png" style="display:block;margin:0 auto;size:50%;" />
+<img alt="Screenshot of Hyprland Tiling" src="https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland.png" style="display:block;margin:0 auto;width:50%;" />
 - Your choice of Kitty or Ghostty for terminal emulation
 ![Screenshot of terminals](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-terminals.png)
 - Custom Oh-My-Posh Theme with transient prompt *(based on Catppuccin)*
