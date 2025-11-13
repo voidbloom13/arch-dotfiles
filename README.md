@@ -1,29 +1,31 @@
 # My Arch Linux Dotfiles
 
-### Key Features
-<h3 style="text-align:center;">Hyprland Tiling Window Manager for seamlessly switching between windows</h3>
-<img alt="Screenshot of Hyprland Tiling" src="https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland.png" style="display:block;margin:0 auto;width:50%;" />
-- Your choice of Kitty or Ghostty for terminal emulation
-![Screenshot of terminals](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-terminals.png)
-- Custom Oh-My-Posh Theme with transient prompt *(based on Catppuccin)*
-![Screenshot of OMP Theme](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/omp-theme.png)
-- Awesome Neovim config inspired by NvChad
-![Screenshot of NVIM](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-nvim.png)
-- Gemini CLI for integrated AI
-![Screenshot of Gemini](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/gemini.png)
-- Hyprlock and Hypridle to keep your device secure
-![Screenshot of Hyprlock](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-hyprlock.png)
-- Sleek Waybar config to track Hyprland workspaces and device metrics
-![Screenshot of waybar](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-waybar.png)
-- Simple, yet elegant, dock using [nwg-dock-hyprland](https://github.com/nwg-piotr/nwg-dock-hyprland)
-![Screenshot of dock](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-dock.png)
-- Wofi theme that matches waybar and nwg-dock
-![Screenshot of Wofi](https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-wofi.png)
-- Hyprpaper for managing wallpapers
-- Hyprshot to capture your screen
-- Using [Keyitdev's SDDM Astronaut Theme](https://github.com/Keyitdev/sddm-astronaut-theme) (hyprland_kath preset) for my SDDM Login Theme
+## Key Features
+<div style="display:flex;align-items:center;">
+    <h3 style="text-align:center;">Hyprland Tiling Window Manager for seamlessly switching between windows</h3>
+    <img alt="Screenshot of Hyprland Tiling" src="https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland.png" style="width:50%;" />
+    <h3>Your choice of Kitty or Ghostty for terminal emulation</h3>
+    <img alt="Screenshot of terminals" src="https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-terminals.png" style="width:50%;" />
+    <h3>Custom Oh-My-Posh Theme with transient prompt <i>based on Catppuccin)</i></h3>
+    <img alt="Screenshot of OMP Theme" src="https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/omp-theme.png" style="width:50%;" />
+    <h3>Awesome Neovim config inspired by NvChad</h3>
+    <img alt="Screenshot of NVIM" src="https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-nvim.png" style="width:50%;" />
+    <h3>Gemini CLI for integrated AI</h3>
+    <img alt="Screenshot of Gemini" src="https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/gemini.png" style="width:50%;" />
+    <h3>Hyprlock and Hypridle to keep your device secure</h3>
+    <img alt="Screenshot of Hyprlock" src="https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-hyprlock.png" style="width:50%;" />
+    <h3>Sleek Waybar config to track Hyprland workspaces and device metrics</h3>
+    <img alt="Screenshot of waybar" src="https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-waybar.png" style="width:50%;" />
+    <h3>Simple, yet elegant, dock using <a href="https://github.com/nwg-piotr/nwg-dock-hyprland">nwg-dock-hyprland</a></h3>
+    <img alt="Screenshot of dock" src="https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-dock.png" style="width:50%;" />
+    <h3>Wofi theme that matches waybar and nwg-dock</h3>
+    <img alt="Screenshot of Wofi" src="https://github.com/voidbloom13/arch-dotfiles/blob/main/utils/assets/hyprland-wofi.png" style="width:50%;" />
+    <h3>Hyprpaper for managing wallpapers</h3>
+    <h3>Hyprshot to capture your screen</h3>
+    <h3>Using <a href="https://github.com/Keyitdev/sddm-astronaut-theme">Keyitdev's SDDM Astronaut Theme</a> <i>hyprland_kath preset</i> for my SDDM Login Theme</h3>
+</div>
 
-### How to Use
+## How to Use
 *Note: This setup is meant to be used directly after a fresh archinstall using the hyprland profile, choosing pipewire as your audio driver, and importing the installation media network configuration.*
 *If you are using a **dotfiles** folder in your $HOME directory, make sure to back it up and delete, rename, or move the directory.*
 1. Update your system and install git using `sudo pacman -Syu git`
