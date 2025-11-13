@@ -25,13 +25,16 @@ fi
 
 # Installs base packages
 cd ~
-sudo pacman -Syu aspnet-runtime base-devel blueman brightnessctl cifs-utils curl discord docker dotnet-runtime dotnet-sdk fastfetch fzf gcc ghostty git github-cli hypridle hyprlock hyprpaper jdk-openjdk kitty libreoffice-fresh man maven networkmanager nm-connection-editor nvim nodejs npm nwg-dock-hyprland obsidian pipewire pgcli postgresql ripgrep stow swaync tmux tree ttf-font-awesome $(pacman -Sgq nerd-fonts) unzip waybar wireplumber zip zoxide zsh
+sudo pacman -Syu aspnet-runtime base-devel blueman brightnessctl cifs-utils curl discord docker dotnet-runtime dotnet-sdk fastfetch flatpak fzf gcc ghostty git github-cli hypridle hyprlock hyprpaper jdk-openjdk kitty libreoffice-fresh man maven networkmanager nm-connection-editor nvim nodejs npm nwg-dock-hyprland obsidian pipewire pgcli postgresql ripgrep stow swaync tmux tree ttf-font-awesome $(pacman -Sgq nerd-fonts) unzip waybar wireplumber zip zoxide zsh
 
 # Clones and Installs yay
 git clone https://aur.archlinux.org/yay
 cd yay
 makepkg -si
 cd ~
+
+# Installs Prism Minecraft Launcher
+flatpak install org.prismlauncher.PrismLauncher
 
 # Installs yay packages
 yay -S google-chrome hyprshot mirage montserrat-otf
