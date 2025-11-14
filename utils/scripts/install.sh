@@ -25,7 +25,7 @@ fi
 
 # Installs base packages
 cd ~
-sudo pacman -Syu aspnet-runtime base-devel blueman brightnessctl cifs-utils curl discord docker dotnet-runtime dotnet-sdk fastfetch flatpak fzf gcc ghostty git github-cli hypridle hyprlock hyprpaper jdk-openjdk kitty libreoffice-fresh man maven networkmanager nm-connection-editor nvim nodejs npm nwg-dock-hyprland obsidian pipewire pgcli postgresql ripgrep stow swaync tmux tree ttf-font-awesome $(pacman -Sgq nerd-fonts) unzip waybar wireplumber zip zoxide zsh
+sudo pacman -Syu aspnet-runtime base-devel blueman brightnessctl cifs-utils curl discord docker dotnet-runtime dotnet-sdk fastfetch flatpak fzf gcc ghostty git github-cli hypridle hyprlock hyprpaper jdk-openjdk kitty libreoffice-fresh man maven networkmanager nm-connection-editor nvim nodejs npm nwg-dock-hyprland obsidian pipewire pgcli postgresql ripgrep stow swaync tailscale tmux tree ttf-font-awesome $(pacman -Sgq nerd-fonts) unzip waybar wireplumber zip zoxide zsh
 
 # Clones and Installs yay
 git clone https://aur.archlinux.org/yay
@@ -64,6 +64,7 @@ sudo systemctl enable --now NetworkManager
 sudo systemctl disable --now iwd
 sudo systemctl enable --now wpa_supplicant
 sudo systemctl enable --now bluetooth
+sudo systemctl enable --now tailscaled
 sudo systemctl enable --now docker
 sudo usermod -aG docker $USER
 
@@ -91,6 +92,7 @@ cd && clear && fastfetch
 
 echo -e "\e[1;37mNext Steps\e[0m:"
 echo -e "* Add network connection in \e[1;31m[nm-connection-editor]\e[0m and \e[1;32mReboot\e[0m"
+echo -e "* Run \e[1;33m[sudo tailscale up]\e[0m and follow the link to set up \e[1;33mTailscale VPN\e[0m"
 echo -e "* Run \e[1;35m[chsh]\e[0m and change user shell to \e[1;35m/usr/bin/zsh\e[0m"
 echo -e "* Run \e[1;32m[tmux]\e[0m and press \e[1;32m[<ctrl>+b, i]\e[0m to install tmux plugins"
 echo -e "* Run \e[1;34m:MasonInstallAll\e[0m inside \e[1;34mNeovim\e[0m"
