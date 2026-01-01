@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-DOTFILES_DIR="$HOME/dotfiles/.dotfiles"
+DOTFILES_DIR="$HOME/.dotfiles"
 DOTFILES_TARGET="$HOME"
+
+# TODO Write logic to combine ~/arch-dotfiles/.dotfiles with $HOME, keeping directory structure intact and renaming any conflicts to [filename/dirname]_{mm-dd-yyyy}
 
 backup_conflicts() {
   # 1. Top-level items in $DOTFILES_DIR

@@ -13,6 +13,9 @@ case $setup_git in
     git config --global user.name "$git_name" && git config --global user.email "$git_email"
     gh auth login
     ;;
+  [nN] )
+    echo "Exiting git setup..."
+    ;;
   * )
     echo "Exiting git setup..."
     ;;
@@ -33,6 +36,9 @@ case $setup_psql in
     echo -e "\e[0;37mCreating a new \e[1;34mPostgreSQL User\e[0m."
     sudo -u postgres createuser --interactive
     echo -e "\n\e[1;37mNext: Create a new database using \e[1;34m[createdb <\e[0;34mmyDatabaseName>]\e[0m\n"
+    ;;
+  [nN] )
+    echo -e "To set up \e[1;34mPostgreSQL\e[0m, follow instructions in the \e]8;;https://wiki.archlinux.org/title/PostgreSQL\a\e[1;4;36mArch Wiki\e[0m\e]8;;\a"
     ;;
   * )
     echo -e "To set up \e[1;34mPostgreSQL\e[0m, follow instructions in the \e]8;;https://wiki.archlinux.org/title/PostgreSQL\a\e[1;4;36mArch Wiki\e[0m\e]8;;\a"
