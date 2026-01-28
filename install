@@ -82,8 +82,9 @@ function dotfiles_setup {
   case $dotfiles_setup in
     [yY] )
       echo "Importing dotfiles now..."
+      mkdir -p $HOME/.dotfiles
       git clone https://github.com/voidbloom13/arch-dotfiles $HOME/repo_dotfiles
-      rsync -av --backup --backup-dir="$HOME/.dotfiles/backups" --suffix=".bak_$(date +%F_%H:%M:%S)" $HOME/repo_dotfiles/.dotfiles/ $HOME/Documents/Test # Change this to $HOME/.dotfiles
+      rsync -av --backup --backup-dir="$HOME/.dotfiles/backups" --suffix=".bak_$(date +%F_%H:%M:%S)" $HOME/repo_dotfiles/.dotfiles/ $HOME/.dotfiles
       rm -rf $HOME/repo_dotfiles
       echo "Import complete."
       create_symlinks
