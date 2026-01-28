@@ -23,7 +23,7 @@ export PATH=$PATH:$HOME/.local/bin
 if [[ -z "$(command -v oh-my-posh)" ]]; then
     curl -s https://ohmyposh.dev/install.sh | bash -s
 fi
-eval "$(oh-my-posh init bash --config "$HOME/dotfiles/utils/void_catppuccin.omp.toml")"
+eval "$(oh-my-posh init bash --config "$HOME/.dotfiles/void_catppuccin.omp.toml")"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
