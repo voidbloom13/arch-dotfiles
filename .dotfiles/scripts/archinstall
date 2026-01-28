@@ -2,6 +2,7 @@
 
 function gnome_setup {
   sudo pacman -Syu gnome gnome-tweaks extension-manager
+  yay -S gdm-settings
 }
 
 function hypr_setup {
