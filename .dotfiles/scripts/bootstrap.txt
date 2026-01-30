@@ -1,0 +1,47 @@
+Languages and Runtimes
+- C#
+  - ASP.NET
+  - Dotnet
+- Java
+  - Maven
+  - SDKMan
+  - Spring CLI
+- Javascript
+  - Typescript
+  - NodeJS
+  - NPM
+    - @google/gemini-cli
+    - nodemon
+    - prettier-plugin-tailwindcss
+    - typescript
+    - typescript-language-server
+    - @tailwindcss/language-server
+- PostgreSQL
+- Python
+  - PIP
+
+Tools and Utils
+- Docker
+- Fastfetch
+- Flatpak
+- Fzf
+- Git
+- Github CLI
+- Google Chrome
+- Man
+- Nvim
+- Ripgrep
+- Rsync
+- Stow
+- Tailscale
+- Tmux
+- Tree
+- Unzip
+- Zip
+- Zoxide
+- Zsh
+
+Misc
+- TPM + Catppuccin TMUX Theme
+- Grub Theme (optional)
+- gnome-tweaks extension-manager gdm-settings(flathub) (if using Gnome DE)

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+function initial_install {
+	sudo dnf update -y
+	sudo dnf install -y \
+		fastfetch \
+		flatpak \
+		fzf \
+		gcc \
+		git \
+		nvim \
+		stow \
+		unzip \
+		zip \
+		zoxide \
+		zsh
+}
+
+function main {
+	initial_install
+}
+
+main
