@@ -1,23 +1,56 @@
 #!/usr/bin/env bash
 
 function initial_install {
-	sudo dnf update -y
-	sudo dnf install -y \
+	# Base Packages
+	dnf install -y \
+		bat \
+		dnf-plugins-core \
 		fastfetch \
 		flatpak \
 		fzf \
 		gcc \
 		git \
+		gh \
+		man-pages \
 		nvim \
+		ripgrep \
+		rsync \
 		stow \
+		tailscale \
+		tmux \
+		tree \
 		unzip \
 		zip \
 		zoxide \
 		zsh
+	
+	# Docker
+	dnf remove -y \
+		docker \
+		docker-client \
+		docker-client-latest \
+		docker-common \
+		docker-latest \
+		docker-latest-logrotate \
+		docker-logrotate \
+		docker-selinux \
+		docker-engine-selinux \
+		docker-engine
+	dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
+	dnf install -y \
+		docker-ce \
+		docker-ce-cli \
+		containerd.io \
+		docker-buildx-plugin \
+		docker-compose-plugin
+	systemctl enable --now docker
 }
 
 function main {
+	dnf update -y
 	initial_install
 }
 
+# TODO
+# Check is script is executed with sudo priveledges and re-execute if not
 main

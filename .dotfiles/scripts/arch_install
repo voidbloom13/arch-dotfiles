@@ -127,7 +127,7 @@ function git_setup {
 function main {
   # Installs base packages
   cd $HOME
-  sudo pacman -Syu aspnet-runtime base-devel cifs-utils curl discord docker dotnet-runtime dotnet-sdk fastfetch flatpak fzf gcc ghostty git github-cli jdk-openjdk krita libreoffice-fresh man maven nvim nodejs npm obsidian pgcli postgresql ripgrep rsync stow tailscale tmux tree ttf-font-awesome $(pacman -Sgq nerd-fonts) unzip zip zoxide zsh
+  sudo pacman -Syu aspnet-runtime base-devel bat cifs-utils curl discord docker dotnet-runtime dotnet-sdk fastfetch flatpak fzf gcc ghostty git github-cli jdk-openjdk krita libreoffice-fresh man maven nvim nodejs npm obsidian pgcli postgresql ripgrep rsync stow tailscale tmux tree ttf-font-awesome $(pacman -Sgq nerd-fonts) unzip zip zoxide zsh
 
   # Clones and Installs yay
   git clone https://aur.archlinux.org/yay
