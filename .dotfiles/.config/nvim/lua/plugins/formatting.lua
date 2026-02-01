@@ -37,7 +37,7 @@ return { -- Autoformat
 				--
 				-- You can use 'stop_after_first' to run the first available formatter from the list
 				-- javascript = { "prettierd", "prettier", stop_after_first = true },
-
+				bash = { "beautysh" },
 				css = { "prettier" },
 				c_sharp = { "csharpier" },
 				html = { "prettier", "tailwindcss" },
@@ -45,8 +45,17 @@ return { -- Autoformat
 				javascript = { "prettier", "tailwindcss" },
 				lua_ls = { "stylua" },
 				python = { "isort", "black" },
+				sh = { "beautysh" },
 				typescript = { "prettier", "tailwindcss" },
 				tailwindcss = { "tailwindcss" },
+			},
+			formatters = {
+				beautysh = {
+					prepend_args = { "-i", "4" },
+				},
+				["google-java-format"] = {
+					prepend_args = { "--aosp" },
+				},
 			},
 		},
 	},
@@ -56,7 +65,7 @@ return { -- Autoformat
 		build = "cd formatter && npm ci && npm run build",
 		config = true,
 		opts = {
-			
+
 			on_save_pattern = { "*.html", "*.js", "*.jsx", "*.ts", "*.tsx", "*.vue" },
 			node_path = "node",
 			trim_spaces = true,
