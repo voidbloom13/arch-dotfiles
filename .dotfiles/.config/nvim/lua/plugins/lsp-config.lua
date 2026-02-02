@@ -119,15 +119,15 @@ return {
 		-- TODO Ensure all necessary formatters are installed here
 		local ensure_installed = {
 			"bash-language-server",
-			"vscode-css-lsp",
+			"cssls",
 			"docker-compose-language-service",
-			"vscode-html-lsp",
+			"html",
 			"jdtls",
 			"lemminx",
 			"lua-language-server",
 			"pyright",
-			"typescript-language-server",
-			"tailwindcss-language-server",
+			"ts_ls",
+			"tailwindcss",
 		}
 		vim.list_extend(ensure_installed, {
 			"beautysh",
