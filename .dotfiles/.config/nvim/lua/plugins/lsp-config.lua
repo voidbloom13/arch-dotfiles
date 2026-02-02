@@ -101,12 +101,34 @@ return {
 			lua_ls = {},
 			pyright = {},
 			roslyn = {},
-			stylua = {},
-			tsserver = {},
+			ts_ls = {},
+			tailwindcss = {
+				filetypes = {
+					"html",
+					"css",
+					"scss",
+					"javascript",
+					"javascriptreact",
+					"typescript",
+					"typescriptreact",
+					"vue",
+				},
+			},
 		}
 
 		-- TODO Ensure all necessary formatters are installed here
-		local ensure_installed = vim.tbl_keys(servers or {})
+		local ensure_installed = {
+			"bash-language-server",
+			"vscode-css-lsp",
+			"docker-compose-language-service",
+			"vscode-html-lsp",
+			"jdtls",
+			"lemminx",
+			"lua-language-server",
+			"pyright",
+			"typescript-language-server",
+			"tailwindcss-language-server",
+		}
 		vim.list_extend(ensure_installed, {
 			"beautysh",
 			"black",
@@ -129,17 +151,5 @@ return {
 			},
 		})
 		vim.lsp.config("roslyn", {})
-		vim.lsp.config("tailwindcss", {
-			filetypes = {
-				"html",
-				"css",
-				"scss",
-				"javascript",
-				"javascriptreact",
-				"typescript",
-				"typescriptreact",
-				"vue",
-			},
-		})
 	end,
 }
