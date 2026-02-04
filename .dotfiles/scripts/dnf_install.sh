@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+function gnome_installs {
+    sudo dnf install -y \
+        gnome-tweaks \
+        gnome-extensions-app
+    flatpak install GdmSettings
+}
+
+function gui_installs {
+    sudo dnf install -y \
+        google-chrome-stable \
+        kitty
+}
+
 function initial_install {
     # Base Packages
     sudo dnf install -y \
@@ -55,7 +68,7 @@ function initial_install {
         python3.12 \
         python3.12-pip \
 
-    # SDKMAN and Springboot CLI
+        # SDKMAN and Springboot CLI
     curl -s "https://get.sdkman.io" | bash
     source "$HOME/.sdkman/bin/sdkman-init.sh"
     sdk install springboot
@@ -146,10 +159,10 @@ function dotfiles_setup {
             ;;
         [nN] )
             echo "Skipping dotfiles import."
-            ;; 
+            ;;
         * )
             echo "Skipping dotfiles import."
-            ;; 
+            ;;
     esac
 }
 
@@ -164,13 +177,13 @@ function git_setup {
             read -p "Git config email: " git_email
             git config --global user.name "$git_name" && git config --global user.email "$git_email"
             gh auth login
-            ;; 
+            ;;
         [nN] )
             echo "Exiting git setup..."
-            ;; 
+            ;;
         * )
             echo "Exiting git setup..."
-            ;; 
+            ;;
     esac
 }
 
