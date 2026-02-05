@@ -1,14 +1,31 @@
 #!/usr/bin/env bash
 
 function gnome_setup {
-  sudo pacman -Syu gnome gnome-tweaks extension-manager
+  sudo pacman -Syu \
+    gnome \
+    gnome-tweaks \
+    extension-manager
   yay -S gdm-settings
 }
 
 function hypr_setup {
   # Hyrpland-specific Packages
-  sudo pacman -S blueman brightnessctl hypridle hyprlock hyprpaper networkmanager nm-connection-editor nwg-dock-hyprland pipewire swaync waybar wireplumber
-  yay -S hyprshot mirage
+  sudo pacman -S \
+    blueman \
+    brightnessctl \
+    hypridle \
+    hyprlock \
+    hyprpaper \
+    networkmanager \
+    nm-connection-editor \
+    nwg-dock-hyprland \
+    pipewire \
+    swaync \
+    waybar \
+    wireplumber
+  yay -S \
+    hyprshot \
+    mirage
 
   # SDDM Theme
   if [[ -d "$HOME/sddm-astronaut-theme" ]]; then
@@ -18,8 +35,8 @@ function hypr_setup {
 
   # NetworkManager setup
   sudo systemctl disable --now systemd-networkd
-  sudo systemctl enable --now NetworkManager
   sudo systemctl disable --now iwd
+  sudo systemctl enable --now NetworkManager
   sudo systemctl enable --now wpa_supplicant
   sudo systemctl enable --now bluetooth
 
@@ -127,7 +144,48 @@ function git_setup {
 function main {
   # Installs base packages
   cd $HOME
-  sudo pacman -Syu aspnet-runtime base-devel bat cifs-utils curl discord docker dotnet-runtime dotnet-sdk fastfetch flatpak fzf gcc ghostty git github-cli jdk-openjdk krita libreoffice-fresh man maven nvim nodejs npm obsidian pgcli postgresql ripgrep rsync stow tailscale tmux tree ttf-font-awesome $(pacman -Sgq nerd-fonts) unzip zip zoxide zsh
+  sudo pacman -Syu \
+    aspnet-runtime \
+    base-devel \
+    bat \
+    cifs-utils \
+    curl \
+    docker \
+    dotnet-runtime \
+    dotnet-sdk \
+    fastfetch \
+    flatpak \
+    fzf \
+    gcc \
+    git \
+    github-cli \
+    jdk-openjdk \
+    man \
+    maven \
+    nvim \
+    nodejs \
+    npm \
+    pgcli \
+    postgresql \
+    ripgrep \
+    rsync \
+    stow \
+    tailscale \
+    tmux \
+    tree \
+    unzip \
+    zip \
+    zoxide \
+    zsh
+
+  # Installs GUI Apps
+  sudo pacman -Syu \
+    discord \
+    ghostty \
+    libreoffice-fresh \
+    obsidian \
+    ttf-font-awesome \
+    $(pacman -Sgq nerd-fonts) \
 
   # Clones and Installs yay
   git clone https://aur.archlinux.org/yay
@@ -135,11 +193,10 @@ function main {
   makepkg -si
   cd $HOME
 
-  # Installs Prism Minecraft Launcher
-  flatpak install org.prismlauncher.PrismLauncher
-
   # Installs yay packages
-  yay -S google-chrome opentabletdriver montserrat-otf
+  yay -S \
+    google-chrome \
+    montserrat-otf
 
   # Installs SDKMan and Spring CLI
   curl -s "https://get.sdkman.io" | bash
@@ -152,7 +209,15 @@ function main {
   git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
 
   # Installs NPM Packages
-  sudo npm install -g @google/gemini-cli nodemon prettier-plugin-tailwindcss typescript typescript-language-server @tailwindcss/language-server
+  sudo npm install -g \
+    @angular/cli \
+    @angular/language-server \
+    @google/gemini-cli \
+    nodemon \
+    prettier-plugin-tailwindcss \
+    typescript \
+    typescript-language-server \
+    @tailwindcss/language-server
 
   # Sets up additional Hyprland/Gnome packages
   echo -e "\e[1;44;87m             Additional DE Packages             \e[0m"
@@ -173,7 +238,6 @@ function main {
   esac
 
   # Final Setup
-  systemctl --user enable opentabletdriver.service --now
   sudo systemctl enable --now tailscaled
   sudo systemctl enable --now docker
   sudo usermod -aG docker $USER

@@ -23,6 +23,11 @@ function initial_install {
 		zip \
 		zoxide \
 		zsh
+
+    # Installs GUI Apps
+    sudo dnf install -y \
+      google-chrome-stable \
+      kitty
 	
 	# Docker
 	sudo dnf remove -y \
@@ -74,6 +79,8 @@ function initial_install {
 
 	# NPM Installs
 	sudo npm install -g \
+    @angular/cli \
+    @angular/language-server \
 		@google/gemini-cli \
 		nodemon \
 		prettier-plugin-tailwindcss \

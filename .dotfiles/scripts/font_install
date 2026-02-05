@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+function main {
+  local url=https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0
+  local download_dest=$HOME/Downloads
+  local temp_dir=$HOME/Downloads/temp
+  local fonts=(
+    0xProto 
+    AdwaitaMono 
+    CommitMono 
+    DejaVuSansMono 
+    FiraCode 
+    Inconsolata 
+    Iosevka 
+    JetBrainsMono 
+    Lekton 
+    Lilex 
+    SourceCodePro 
+    NerdFontsSymbolsOnly 
+    UbuntuSans 
+    VictorMono 
+    ZedMono
+  )
+
+  mkdir -p "$download_dest"
+  if [[ ! command -v unzip >/dev/null 2>&1 ]]; then
+    echo "Please install unzip and re-run this script."
+    exit 1
+  fi
+
+  for font in "${fonts[@]}"; do
+    curl -o "$download_dest"/"$font".zip "$url"/"$font".zip
+    unzip "$download_dest"/"$font".zip -d "$temp_dir"
+    find "$temp_dir" -type f ! -name "*.[t|o]tf" ! -name "*.ttc" -delete
+    sudo chmod 644 "$temp_dir"/*.[otf|ttc|ttf]
+    sudo cp -r "$temp_dir" /usr/share/fonts/"$font"
+    rm -rf "$temp_dir" "$download_dest"/"$font".zip
+  done
+
+  sudo fc-cache -fv
+}
+
+main
