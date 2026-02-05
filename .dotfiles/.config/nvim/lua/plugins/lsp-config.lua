@@ -11,7 +11,10 @@ return {
 				},
 				ensure_installed = {
 					"rozlyn",
+<<<<<<< HEAD
 					"rzls",
+=======
+>>>>>>> refs/remotes/origin/main
 				},
 			},
 		},
@@ -93,7 +96,11 @@ return {
 
 		--  TODO Ensure these lsps are configured properly
 		local servers = {
+<<<<<<< HEAD
 			angularls = {},
+=======
+			bashls = {},
+>>>>>>> refs/remotes/origin/main
 			cssls = {},
 			docker_compose_language_service = {},
 			html = {},
@@ -102,6 +109,7 @@ return {
 			lua_ls = {},
 			pyright = {},
 			roslyn = {},
+<<<<<<< HEAD
 			rzls = {},
 			stylua = {},
 			ts_ls = {},
@@ -110,6 +118,38 @@ return {
 		-- TODO Ensure all necessary formatters are installed here
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
+=======
+			ts_ls = {},
+			tailwindcss = {
+				filetypes = {
+					"html",
+					"css",
+					"scss",
+					"javascript",
+					"javascriptreact",
+					"typescript",
+					"typescriptreact",
+					"vue",
+				},
+			},
+		}
+
+		-- TODO Ensure all necessary formatters are installed here
+		local ensure_installed = {
+			"bash-language-server",
+			"cssls",
+			"docker-compose-language-service",
+			"html",
+			"jdtls",
+			"lemminx",
+			"lua-language-server",
+			"pyright",
+			"ts_ls",
+			"tailwindcss",
+		}
+		vim.list_extend(ensure_installed, {
+			"beautysh",
+>>>>>>> refs/remotes/origin/main
 			"black",
 			"isort",
 			"prettier",
@@ -125,6 +165,7 @@ return {
 				function(server_name)
 					local server = servers[server_name] or {}
 					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+<<<<<<< HEAD
 					-- require("lspconfig")[server_name].setup(server)
 					vim.lsp.config(server_name, {})
 				end,
@@ -147,5 +188,12 @@ return {
 				"vue",
 			},
 		})
+=======
+					require("lspconfig")[server_name].setup(server)
+				end,
+			},
+		})
+		vim.lsp.config("roslyn", {})
+>>>>>>> refs/remotes/origin/main
 	end,
 }
