@@ -11,10 +11,6 @@ return {
 				},
 				ensure_installed = {
 					"rozlyn",
-<<<<<<< HEAD
-					"rzls",
-=======
->>>>>>> refs/remotes/origin/main
 				},
 			},
 		},
@@ -87,39 +83,23 @@ return {
 			vim.diagnostic.config({ signs = { text = diagnostic_signs } })
 		end
 
-		--  LSP servers and clients are able to communicate to each other what features they support.
-		--  By default, Neovim doesn't support everything that is in the LSP specification.
-		--  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
-		--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-		--  TODO Ensure these lsps are configured properly
 		local servers = {
-<<<<<<< HEAD
 			angularls = {},
-=======
 			bashls = {},
->>>>>>> refs/remotes/origin/main
 			cssls = {},
-			docker_compose_language_service = {},
+			dockerls = {},
+			emmet_ls = {},
 			html = {},
 			jdtls = {},
+			jsonls = {},
 			lemminx = {},
 			lua_ls = {},
 			pyright = {},
 			roslyn = {},
-<<<<<<< HEAD
 			rzls = {},
-			stylua = {},
-			ts_ls = {},
-		}
-
-		-- TODO Ensure all necessary formatters are installed here
-		local ensure_installed = vim.tbl_keys(servers or {})
-		vim.list_extend(ensure_installed, {
-=======
-			ts_ls = {},
 			tailwindcss = {
 				filetypes = {
 					"html",
@@ -130,26 +110,17 @@ return {
 					"typescript",
 					"typescriptreact",
 					"vue",
+					"htmlangular",
 				},
 			},
+			tsserver = {},
+			yamlls = {},
 		}
 
-		-- TODO Ensure all necessary formatters are installed here
-		local ensure_installed = {
-			"bash-language-server",
-			"cssls",
-			"docker-compose-language-service",
-			"html",
-			"jdtls",
-			"lemminx",
-			"lua-language-server",
-			"pyright",
-			"ts_ls",
-			"tailwindcss",
-		}
-		vim.list_extend(ensure_installed, {
+		local ensure_installed_lsp = vim.tbl_keys(servers)
+
+		local ensure_installed_formatters = {
 			"beautysh",
->>>>>>> refs/remotes/origin/main
 			"black",
 			"isort",
 			"prettier",
@@ -157,43 +128,20 @@ return {
 			"csharpier",
 			"google-java-format",
 			"stylua",
+		}
+
+		require("mason-tool-installer").setup({
+			ensure_installed = vim.list_extend(ensure_installed_lsp, ensure_installed_formatters),
 		})
-		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		require("mason-lspconfig").setup({
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
 					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-<<<<<<< HEAD
-					-- require("lspconfig")[server_name].setup(server)
-					vim.lsp.config(server_name, {})
-				end,
-			},
-		})
-		vim.lsp.config("angularls", {
-			filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" },
-			root_markers = { "angular.json", "nx.json" },
-		})
-		vim.lsp.config("roslyn", {})
-		vim.lsp.config("tailwindcss", {
-			filetypes = {
-				"html",
-				"css",
-				"scss",
-				"javascript",
-				"javascriptreact",
-				"typescript",
-				"typescriptreact",
-				"vue",
-			},
-		})
-=======
 					require("lspconfig")[server_name].setup(server)
 				end,
 			},
 		})
-		vim.lsp.config("roslyn", {})
->>>>>>> refs/remotes/origin/main
 	end,
 }

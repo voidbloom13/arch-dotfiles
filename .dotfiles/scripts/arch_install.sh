@@ -200,6 +200,7 @@ function main {
     # Installs NPM Packages
     sudo npm install -g \
         @angular/cli \
+        @angular/language-server \
         @google/gemini-cli \
         nodemon \
         prettier-plugin-tailwindcss \

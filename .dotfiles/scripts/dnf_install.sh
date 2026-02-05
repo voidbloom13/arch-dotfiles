@@ -88,6 +88,7 @@ function initial_install {
     # NPM Installs
     sudo npm install -g \
         @angular/cli \
+        @angular/language-server \
         @google/gemini-cli \
         nodemon \
         prettier-plugin-tailwindcss \
