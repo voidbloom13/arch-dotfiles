@@ -113,7 +113,7 @@ return {
 					"htmlangular",
 				},
 			},
-			tsserver = {},
+			ts_ls = {},
 			yamlls = {},
 		}
 
